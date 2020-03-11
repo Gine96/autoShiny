@@ -1,47 +1,69 @@
-from PIL import Image
-import collections
-import os
+from updateshinyfile import update
+import pygetwindow as gw
+import pyautogui as ag
+import time
 import sys
+from PIL import Image
 
-selected = "rossofuoco"
+selected = "rubino"
+#se cerchi uno starter su smeraldo scegli rubino o zaffiro
+starter = True
+pokettodacercare = "255" #metti numero del pokemon che vuoi guardando le immagini nelle cartelle
 
 games = {
-  "smeraldo":"emerald",
-  "rubino":"ruby-sapphire",
-  "zaffiro":"ruby-sappire",
-  "rossofuoco":"firered-leafgreen",
-  "verdefoglia":"firered-leafgreen"
+    "smeraldo":"emerald",
+    "rubino":"ruby-sapphire",
+    "zaffiro":"ruby-sappire",
+    "rossofuoco":"firered-leafgreen",
+    "verdefoglia":"firered-leafgreen"
 }
 
-winPath = "pokemon\\gen3\\"+games[selected]+"\\shiny\\"
-macPath = "pokemon/gen3/"+games[selected]+"/shiny/"
-
+winPath = "pokemon\\gen3\\"+games[selected]+("\\back" if starter else "")+"\\shiny\\"
+macPath = "pokemon/gen3/"+games[selected]+("/back" if starter else "")+"/shiny/"
 shinyPath = winPath if sys.platform == "win32" else macPath
 
-filenames = []
+update(selected, games, shinyPath)
 
-for r, d, f in os.walk(shinyPath):
-  for file in f:
-    if ".png" in file:
-      filenames.append(file)
+shiny = eval(open(games[selected]+"Shiny.txt","r").read())
 
-images = {}
-imagesT = {}
-for name in filenames:
-  imagesT[name[:-4]] = Image.open(shinyPath+name).convert("RGB")
+vbawindow = None
 
-for name in filenames:
-  imgColors = []
-  for pixel in imagesT[name[:-4]].getdata():
-    if pixel not in imgColors:
-      imgColors.append(pixel)
-  images[name[:-4]]=imgColors
+for window in gw.getAllTitles():
+  if "VisualBoyAdvance" in window:
+    vbawindow = gw.getWindowsWithTitle(window)[0]
 
-#prova
+#mette focus sulla finestra e la sposta a (0,0)
+vbawindow.activate()
+vbawindow.moveTo(0,0)
 
-f = open(games[selected]+"Shiny.txt","w")
-f.write(str(images))
-f.close()
+#salva prima
+ag.hotkey("shift", "f1")
+time.sleep(1)
+  
+trovato = False
+counter = 0
+while not trovato:
+  counter+=1
+  ag.hotkey("f1")
+  time.sleep(0.3)
+  ag.keyDown("l")
+  time.sleep(0.2)
+  ag.keyUp("l")
+  time.sleep(0.3)
+  ag.keyDown("l")
+  time.sleep(0.3)
+  ag.keyUp("l")
+  time.sleep(0.5)
+  screen=[]
+  for pixel in ag.screenshot(region=(30,115,100,75)).getdata():
+    if pixel not in screen:
+      screen.append(pixel)
+  count=0
+  for item1 in screen:
+    for item2 in shiny[pokettodacercare]:
+      if item1 == item2:
+        count+=1
+  print(counter)
+  trovato = True if count>len(shiny[pokettodacercare])*0.8 else False
 
-#controlla che due liste contengano gli stessi colori
-#print(collections.Counter(oneColors) == collections.Counter(twoColors))
+print("Trovato dopo "+counter+" tentativi")
