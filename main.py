@@ -1,8 +1,14 @@
 from PIL import Image
 import collections
 import os
+import sys
 
-shinyPath = "pokemon/gen3/ruby-sapphire/shiny/"
+game = ["emerald","ruby-sapphire","firered-leafgreen"]
+
+winPath = "pokemon\\gen3\\"+game[0]+"\\shiny\\"
+macPath = "pokemon/gen3/"+game[0]+"/shiny/"
+
+shinyPath = winPath if sys.platform == "win32" else macPath
 
 filenames = []
 
@@ -25,7 +31,7 @@ for name in filenames:
 
 #prova
 
-f = open("rsShiny.txt","w")
+f = open(game[0]+"Shiny.txt","w")
 f.write(str(images))
 f.close()
 
