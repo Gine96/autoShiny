@@ -3,10 +3,10 @@ import collections
 import os
 import sys
 
-game = ["emerald","ruby-sapphire","firered-leafgreen"]
+games = ["emerald","ruby-sapphire","firered-leafgreen"]
 
-winPath = "pokemon\\gen3\\"+game[0]+"\\shiny\\"
-macPath = "pokemon/gen3/"+game[0]+"/shiny/"
+winPath = "pokemon\\gen3\\"+games[0]+"\\shiny\\"
+macPath = "pokemon/gen3/"+games[0]+"/shiny/"
 
 shinyPath = winPath if sys.platform == "win32" else macPath
 
@@ -31,7 +31,7 @@ for name in filenames:
 
 #prova
 
-f = open(game[0]+"Shiny.txt","w")
+f = open(games[0]+"Shiny.txt","w")
 f.write(str(images))
 f.close()
 
