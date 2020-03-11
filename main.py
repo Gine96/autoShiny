@@ -23,6 +23,8 @@ for name in filenames:
       imgColors.append(pixel)
   images[name[:-4]]=imgColors
 
+#prova
+
 f = open("rsShiny.txt","w")
 f.write(str(images))
 f.close()
