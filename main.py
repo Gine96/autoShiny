@@ -56,35 +56,71 @@ while not trovato:
   ag.keyUp("l")
   time.sleep(0.3)
   #entrato nel save
+  if selected == "rossofuoco" or selected == "verdefoglia":
+    i = 1 if starter else 3
+    for x in range(0,i):
+      ag.keyDown("l")
+      time.sleep(0.2)
+      ag.keyUp("l")
+      time.sleep(0.2)
 
-  ag.keyDown("l")
-  time.sleep(0.1)
-  ag.keyUp("l")
-  time.sleep(0.3)
-  #triggerato il poketto
-  if starter:
-    if pokettodacercare == "252":
-      ag.keyDown("a")
-      time.sleep(0.1)
-      ag.keyUp("a")
-    if pokettodacercare == "258":
-      ag.keyDown("d")
-      time.sleep(0.1)
-      ag.keyUp("d")
-    time.sleep(0.1)
-    #andato sulla pokeball giusta
-
-    ag.keyDown("l")
-    time.sleep(0.1)
-    ag.keyUp("l")
-    time.sleep(0.2)
-    #scelto pokemon
-
+  if selected == "smeraldo" or selected == "rubino" or selected == "zaffiro":
     ag.keyDown("l")
     time.sleep(0.1)
     ag.keyUp("l")
     time.sleep(0.3)
-    #messaggio conferma starter schiacciato
+    #triggerato il poketto
+
+  if starter:
+    if pokettodacercare == "1":
+      ag.keyDown("a")
+      #DA SISTEMARE
+      ag.keyUp("a")
+      ag.keyDown("w")
+      time.sleep(0.1)
+      ag.keyUp("w")
+
+    if pokettodacercare == "7":
+      ag.keyDown("a")
+      time.sleep(0.1)
+      ag.keyUp("a")
+      ag.keyDown("w")
+      time.sleep(0.1)
+      ag.keyUp("w")
+
+    if pokettodacercare == "252":
+      ag.keyDown("a")
+      time.sleep(0.1)
+      ag.keyUp("a")
+
+    if pokettodacercare == "258":
+      ag.keyDown("d")
+      time.sleep(0.1)
+      ag.keyUp("d")
+
+    time.sleep(0.1)
+    #andato sulla pokeball giusta
+    if selected == "smeraldo" or selected == "rubino" or selected == "zaffiro":
+      ag.keyDown("l")
+      time.sleep(0.1)
+      ag.keyUp("l")
+      time.sleep(0.2)
+      #scelto pokemon
+
+      ag.keyDown("l")
+      time.sleep(0.1)
+      ag.keyUp("l")
+      time.sleep(0.3)
+      #messaggio conferma starter schiacciato
+    if selected == "rossofuoco" or selected == "verdefoglia":
+      for x in range(0,7):
+        ag.keyDown("l")
+        time.sleep(0.1)
+        ag.keyUp("l")
+
+  while True:
+    print(".")
+    time.sleep(2)
 
   ag.keyDown("l")
   time.sleep(0.1)
