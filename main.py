@@ -50,26 +50,49 @@ while not trovato:
   counter+=1
   ag.hotkey("f1")
   time.sleep(0.3)
+
+  ag.keyDown("l")
+  time.sleep(0.1)
+  ag.keyUp("l")
+  time.sleep(0.3)
+  #entrato nel save
+
+  ag.keyDown("l")
+  time.sleep(0.1)
+  ag.keyUp("l")
+  time.sleep(0.3)
+  #triggerato il poketto
+  if starter:
+    if pokettodacercare == "252":
+      ag.keyDown("a")
+      time.sleep(0.1)
+      ag.keyUp("a")
+    if pokettodacercare == "258":
+      ag.keyDown("d")
+      time.sleep(0.1)
+      ag.keyUp("d")
+    time.sleep(0.1)
+    #andato sulla pokeball giusta
+
+    ag.keyDown("l")
+    time.sleep(0.1)
+    ag.keyUp("l")
+    time.sleep(0.2)
+    #scelto pokemon
+
+    ag.keyDown("l")
+    time.sleep(0.1)
+    ag.keyUp("l")
+    time.sleep(0.3)
+    #messaggio conferma starter schiacciato
+
   ag.keyDown("l")
   time.sleep(0.1)
   ag.keyUp("l")
   ag.keyDown("l")
   time.sleep(0.1)
-  ag.keyUp("l")  
-  ag.keyDown("l")
-  time.sleep(0.1)
   ag.keyUp("l")
-  ag.keyDown("l")
-  time.sleep(0.1)
-  ag.keyUp("l")
-  time.sleep(0.5)
-  ag.keyDown("l")
-  time.sleep(0.1)
-  ag.keyUp("l")
-  time.sleep(0.2)
-  ag.keyDown("l")
-  time.sleep(0.1)
-  ag.keyUp("l")
+  #messaggio selvatico schiacciato
   
   time.sleep(0.5)
   screen=[]
