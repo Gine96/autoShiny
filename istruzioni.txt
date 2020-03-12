@@ -1,0 +1,18 @@
+per usarlo cambi le impostazioni nel file opzioni:
+  - game puoi mettere:
+    "smeraldo", "zaffiro", "rubino"
+  - pokemon da cercare: 
+    metti numero del pokemon che cerchi, nella cartella pokemon ci sono tutti gli sprite vedi da li il numero
+  - starter metti:
+    "True" o "False" in base a se quello che cerchi è starter o meno
+
+
+Per funzionare devi fare un po di cose prima con le impostazioni dell'emulatore:
+sotto emulation attivi Turbo mode
+sotto options->Video->Scaled Resize->1x
+prima di far partire il programma è importante che salvi davanti al poketto
+poi resetti e arrivi fino al punto in cui devi aprire il salvataggio del gioco
+dopodiche puoi avviare il programma
+mentre va non puoi usare il computer purtroppo finche non trovo un modo
+
+super lmao!

@@ -4,11 +4,15 @@ import pyautogui as ag
 import time
 import sys
 from PIL import Image
+import json
 
-selected = "rubino"
+with open("opzioni.json") as json_data_file:
+  data = json.load(json_data_file)
+
+selected = data["game"]
 #se cerchi uno starter su smeraldo scegli rubino o zaffiro
-starter = True
-pokettodacercare = "255" #metti numero del pokemon che vuoi guardando le immagini nelle cartelle
+starter = eval(data["starter"])
+pokettodacercare = data["pokemonDaCercare"] #metti numero del pokemon che vuoi guardando le immagini nelle cartelle
 
 games = {
     "smeraldo":"emerald",
@@ -47,15 +51,29 @@ while not trovato:
   ag.hotkey("f1")
   time.sleep(0.3)
   ag.keyDown("l")
-  time.sleep(0.2)
+  time.sleep(0.1)
   ag.keyUp("l")
-  time.sleep(0.3)
   ag.keyDown("l")
-  time.sleep(0.3)
+  time.sleep(0.1)
+  ag.keyUp("l")  
+  ag.keyDown("l")
+  time.sleep(0.1)
+  ag.keyUp("l")
+  ag.keyDown("l")
+  time.sleep(0.1)
   ag.keyUp("l")
   time.sleep(0.5)
+  ag.keyDown("l")
+  time.sleep(0.1)
+  ag.keyUp("l")
+  time.sleep(0.2)
+  ag.keyDown("l")
+  time.sleep(0.1)
+  ag.keyUp("l")
+  
+  time.sleep(0.5)
   screen=[]
-  for pixel in ag.screenshot(region=(30,115,100,75)).getdata():
+  for pixel in ag.screenshot(region=(30,70,200,140)).getdata():
     if pixel not in screen:
       screen.append(pixel)
   count=0
@@ -66,4 +84,4 @@ while not trovato:
   print(counter)
   trovato = True if count>len(shiny[pokettodacercare])*0.8 else False
 
-print("Trovato dopo "+counter+" tentativi")
+print("Trovato dopo "+str(counter)+" tentativi")
