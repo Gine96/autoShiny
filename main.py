@@ -57,8 +57,7 @@ while not trovato:
   time.sleep(0.3)
   #entrato nel save
   if selected == "rossofuoco" or selected == "verdefoglia":
-    i = 1 if starter else 3
-    for x in range(0,i):
+    for x in range(0,3):
       ag.keyDown("l")
       time.sleep(0.2)
       ag.keyUp("l")
@@ -97,11 +96,6 @@ while not trovato:
       ag.keyUp("l")
       time.sleep(0.3)
       #messaggio conferma starter schiacciato
-    if selected == "rossofuoco" or selected == "verdefoglia":
-      for x in range(0,7):
-        ag.keyDown("l")
-        time.sleep(0.1)
-        ag.keyUp("l")
 
   while True:
     print(".")
