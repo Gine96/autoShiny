@@ -72,21 +72,6 @@ while not trovato:
     #triggerato il poketto
 
   if starter:
-    if pokettodacercare == "1":
-      ag.keyDown("a")
-      #DA SISTEMARE
-      ag.keyUp("a")
-      ag.keyDown("w")
-      time.sleep(0.1)
-      ag.keyUp("w")
-
-    if pokettodacercare == "7":
-      ag.keyDown("a")
-      time.sleep(0.1)
-      ag.keyUp("a")
-      ag.keyDown("w")
-      time.sleep(0.1)
-      ag.keyUp("w")
 
     if pokettodacercare == "252":
       ag.keyDown("a")
