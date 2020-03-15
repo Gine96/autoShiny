@@ -41,14 +41,14 @@ vbawindow.activate()
 vbawindow.moveTo(0,0)
 
 #salva prima
-ag.hotkey("shift", "f1")
+ag.hotkey("shift", "f"+data["saveslot"])
 time.sleep(1)
   
 trovato = False
 counter = 0
 while not trovato:
   counter+=1
-  ag.hotkey("f1")
+  ag.hotkey("f"+data["saveslot"])
   time.sleep(0.3)
 
   ag.keyDown("l")

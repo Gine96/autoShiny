@@ -1,10 +1,10 @@
 per usarlo cambi le impostazioni nel file opzioni:
-  - game puoi mettere:
-    "smeraldo", "zaffiro", "rubino"
+  - game puoi mettere quello che vuoi di gen 3
   - pokemon da cercare: 
     metti numero del pokemon che cerchi, nella cartella pokemon ci sono tutti gli sprite vedi da li il numero
   - starter metti:
-    "True" o "False" in base a se quello che cerchi è starter o meno
+    "True" o "False" in base a se quello che cerchi è starter o meno, non funziona per rossofuoco o verdefoglia
+  - saveslot: da 1 a 10 inclusi
 
 
 Per funzionare devi fare un po di cose prima con le impostazioni dell'emulatore:
